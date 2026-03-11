@@ -55,6 +55,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1A1919" />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${notoSansJP.variable} ${dmMono.variable} antialiased`}
       >
