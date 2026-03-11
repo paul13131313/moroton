@@ -1,0 +1,90 @@
+import { Question } from "./types";
+
+export const questions: Question[] = [
+  {
+    key: "country",
+    label: "どこで働いとんの？",
+    options: ["日本", "アメリカ", "イギリス", "中国"],
+    freeInput: true,
+  },
+  {
+    key: "industry",
+    label: "何の業界？",
+    options: [
+      "IT・テック",
+      "金融",
+      "メーカー",
+      "医療・製薬",
+      "コンサル",
+      "広告・メディア",
+      "小売・サービス",
+      "公務員",
+      "建設・不動産",
+    ],
+    freeInput: true,
+  },
+  {
+    key: "role",
+    label: "で、何しとんの？",
+    options: [
+      "エンジニア",
+      "営業",
+      "マーケティング",
+      "経理・財務",
+      "人事",
+      "デザイナー",
+      "企画・戦略",
+      "管理職",
+      "経営者",
+    ],
+    freeInput: true,
+  },
+  {
+    key: "experience",
+    label: "何年やっとんの？",
+    options: ["1年未満", "1〜3年", "3〜5年", "5〜10年", "10〜20年", "20年以上", "その他"],
+  },
+  {
+    key: "companyType",
+    label: "外資？内資？",
+    options: [
+      "外資系",
+      "日系大企業",
+      "日系中小",
+      "スタートアップ",
+      "フリーランス",
+      "公的機関",
+      "その他",
+    ],
+  },
+  {
+    key: "qualification",
+    label: "なんか持っとん？",
+    options: [
+      "博士号",
+      "修士号",
+      "MBA",
+      "医師免許",
+      "弁護士資格",
+      "公認会計士",
+      "技術系国家資格",
+      "特になし",
+    ],
+    freeInput: true,
+  },
+  {
+    key: "jobChanges",
+    label: "何回よそ行った？",
+    options: ["0回（新卒から一筋）", "1回", "2〜3回", "4回以上", "その他"],
+  },
+  {
+    key: "specialSkills",
+    label: "なんか自慢できることある？",
+    freeInput: true,
+  },
+  {
+    key: "currentSalary",
+    label: "ほんで、いくらもろとんの？",
+    salaryInput: true,
+  },
+];
