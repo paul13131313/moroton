@@ -29,22 +29,22 @@ export default function RankCard({ icon, label, ranking, delay, bgColor }: RankC
 
   return (
     <div
-      className="rounded-2xl p-5 text-white relative overflow-hidden"
+      className="rounded-2xl p-4 text-white relative overflow-hidden"
       style={{ backgroundColor: bgColor }}
     >
-      <div className="flex items-center gap-2 mb-3">
-        <span className="text-2xl">{icon}</span>
-        <span className="font-bold text-sm">{label}</span>
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-xl">{icon}</span>
+        <span className="font-bold text-xs">{label}</span>
       </div>
       <div className="flex items-end justify-between">
         <div>
-          <p className="text-xs opacity-70">上位</p>
-          <p className="text-2xl font-mono font-bold">
+          <p className="text-[10px] opacity-70">上位</p>
+          <p className="text-xl font-mono font-bold">
             {100 - ranking.percentile}%
           </p>
         </div>
         {show && (
-          <div className={`animate-stamp text-6xl font-display font-bold ${RANK_COLORS[ranking.rank]}`}>
+          <div className={`animate-stamp text-5xl font-display font-bold ${RANK_COLORS[ranking.rank]}`}>
             {ranking.rank}
           </div>
         )}

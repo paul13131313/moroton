@@ -13,24 +13,24 @@ interface ResultScreenProps {
 
 export default function ResultScreen({ result, currentSalary }: ResultScreenProps) {
   return (
-    <div className="animate-bubble flex flex-col gap-6">
-      {/* Salary */}
-      <div className="bg-white rounded-3xl p-6 shadow-lg">
-        <SalaryDisplay
-          amount={result.estimatedSalary}
-          currency={result.currency}
-          currentSalary={currentSalary}
-          reaction={result.reaction}
-        />
+    <div className="animate-bubble flex flex-col gap-4 lg:gap-3">
+      {/* Top row: Salary + Deviation side by side on PC */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-3">
+        <div className="lg:col-span-3 bg-white rounded-3xl p-4 lg:p-5 shadow-lg">
+          <SalaryDisplay
+            amount={result.estimatedSalary}
+            currency={result.currency}
+            currentSalary={currentSalary}
+            reaction={result.reaction}
+          />
+        </div>
+        <div className="lg:col-span-2 bg-white rounded-3xl p-4 lg:p-5 shadow-lg flex flex-col justify-center">
+          <DeviationBar value={result.deviationValue} />
+        </div>
       </div>
 
-      {/* Deviation */}
-      <div className="bg-white rounded-3xl p-6 shadow-lg">
-        <DeviationBar value={result.deviationValue} />
-      </div>
-
-      {/* Rankings */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* Rankings: 3 columns */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <RankCard
           icon="🌍"
           label="全世界の労働者"
@@ -54,29 +54,27 @@ export default function ResultScreen({ result, currentSalary }: ResultScreenProp
         />
       </div>
 
-      {/* AI Comment */}
-      <div className="bg-primary text-white rounded-3xl p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-3xl">👵</span>
-          <p className="font-bold text-lg">オバちゃんの総評</p>
+      {/* Bottom row: Comment + Share side by side on PC */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-3">
+        <div className="lg:col-span-3 bg-primary text-white rounded-3xl p-4 lg:p-5">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-2xl">👵</span>
+            <p className="font-bold text-base">オバちゃんの総評</p>
+          </div>
+          <p className="text-sm leading-relaxed">{result.comment}</p>
         </div>
-        <p className="text-base leading-relaxed">{result.comment}</p>
-      </div>
-
-      {/* Share */}
-      <div className="bg-white rounded-3xl p-6 shadow-lg">
-        <p className="text-center font-bold text-sm text-primary/60 mb-4">結果をシェアする</p>
-        <ShareCard result={result} currentSalary={currentSalary} />
-      </div>
-
-      {/* Retry */}
-      <div className="text-center pb-8">
-        <button
-          onClick={() => window.location.reload()}
-          className="text-sm text-primary/40 hover:text-primary underline transition-colors"
-        >
-          もう一回やる
-        </button>
+        <div className="lg:col-span-2 bg-white rounded-3xl p-4 lg:p-5 shadow-lg flex flex-col justify-center">
+          <p className="text-center font-bold text-sm text-primary/60 mb-3">結果をシェアする</p>
+          <ShareCard result={result} currentSalary={currentSalary} />
+          <div className="text-center mt-3">
+            <button
+              onClick={() => window.location.reload()}
+              className="text-xs text-primary/40 hover:text-primary underline transition-colors"
+            >
+              もう一回やる
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

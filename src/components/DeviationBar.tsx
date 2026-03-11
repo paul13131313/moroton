@@ -27,22 +27,20 @@ export default function DeviationBar({ value }: DeviationBarProps) {
   };
 
   return (
-    <div className="py-6">
+    <div className="py-3">
       <div className="flex items-end justify-between mb-2">
         <p className="text-sm font-bold text-primary/60">年収偏差値</p>
         <p className="text-xs text-primary/40">{getLabel()}</p>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="flex-1 h-6 bg-primary/10 rounded-full overflow-hidden relative">
-          {/* Marker lines */}
+      <div className="flex items-center gap-3">
+        <div className="flex-1 h-5 bg-primary/10 rounded-full overflow-hidden relative">
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-primary/20" />
-          {/* Fill */}
           <div
             className="h-full bg-gradient-to-r from-cyan via-accent to-magenta rounded-full transition-all duration-1000 ease-out"
             style={{ width: `${width}%` }}
           />
         </div>
-        <span className="text-3xl font-mono font-bold text-primary min-w-[60px] text-right">
+        <span className="text-3xl font-mono font-bold text-primary min-w-[50px] text-right">
           {value}
         </span>
       </div>

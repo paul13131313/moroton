@@ -41,7 +41,7 @@ export default function Home() {
     <main className="min-h-dvh">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-primary text-white">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
+        <div className={`mx-auto px-4 py-3 flex items-center gap-3 ${phase === "result" ? "max-w-5xl" : "max-w-2xl"}`}>
           <span className="text-2xl">👵</span>
           <div>
             <h1 className="font-display text-lg font-bold tracking-tight leading-none">
@@ -60,7 +60,7 @@ export default function Home() {
       </header>
 
       {/* Content */}
-      <div className="max-w-2xl mx-auto px-4 py-6">
+      <div className={`mx-auto px-4 ${phase === "result" ? "max-w-5xl py-4" : "max-w-2xl py-6"}`}>
         {/* Intro */}
         {phase === "chat" && (
           <div className="mb-6 text-center">
@@ -87,23 +87,25 @@ export default function Home() {
         )}
       </div>
 
-      {/* Footer */}
-      <footer className="border-t border-primary/10 py-6">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <p className="text-xs text-primary/30">
-            あんたなんぼなん？ — AI年収査定ツール
-          </p>
-          <div className="flex justify-center gap-1 mt-2">
-            {["#00A3D7", "#E61A7C", "#FFEF41", "#003DA6"].map((c) => (
-              <div
-                key={c}
-                className="w-8 h-1 rounded-full"
-                style={{ backgroundColor: c }}
-              />
-            ))}
+      {/* Footer - hidden on result page PC to save space */}
+      {phase !== "result" && (
+        <footer className="border-t border-primary/10 py-6">
+          <div className="max-w-2xl mx-auto px-4 text-center">
+            <p className="text-xs text-primary/30">
+              あんたなんぼなん？ — AI年収査定ツール
+            </p>
+            <div className="flex justify-center gap-1 mt-2">
+              {["#00A3D7", "#E61A7C", "#FFEF41", "#003DA6"].map((c) => (
+                <div
+                  key={c}
+                  className="w-8 h-1 rounded-full"
+                  style={{ backgroundColor: c }}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      )}
     </main>
   );
 }
