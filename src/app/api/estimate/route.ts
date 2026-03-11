@@ -70,8 +70,9 @@ export async function POST(request: Request) {
     return NextResponse.json(result);
   } catch (error) {
     console.error("Estimate API error:", error);
+    const message = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: "年収推定に失敗しました" },
+      { error: "年収推定に失敗しました", detail: message },
       { status: 500 }
     );
   }

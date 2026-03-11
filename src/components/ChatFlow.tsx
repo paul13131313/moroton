@@ -166,7 +166,7 @@ export default function ChatFlow({ onComplete }: ChatFlowProps) {
                 type="text"
                 value={freeText}
                 onChange={(e) => setFreeText(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleFreeTextSubmit()}
+                onKeyDown={(e) => e.key === "Enter" && !e.nativeEvent.isComposing && handleFreeTextSubmit()}
                 placeholder={currentQuestion.options ? "その他（自由入力）" : "自由に入力してや"}
                 className="flex-1 border-2 border-primary/20 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-accent transition-colors"
               />
@@ -206,7 +206,7 @@ export default function ChatFlow({ onComplete }: ChatFlowProps) {
                     const v = e.target.value.replace(/[^\d]/g, "");
                     setSalaryValue(v);
                   }}
-                  onKeyDown={(e) => e.key === "Enter" && handleSalarySubmit()}
+                  onKeyDown={(e) => e.key === "Enter" && !e.nativeEvent.isComposing && handleSalarySubmit()}
                   placeholder={getSalaryPlaceholder()}
                   className="flex-1 border-2 border-primary/20 rounded-full px-4 py-2.5 text-sm font-mono focus:outline-none focus:border-accent transition-colors"
                 />
